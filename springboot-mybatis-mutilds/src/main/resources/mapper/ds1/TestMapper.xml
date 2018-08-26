@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="cn.edu.nuc.springbootmybatismutilds.dao.mysql.ds1.TestDao">  
+    <resultMap id="BaseResultMap" type="cn.edu.nuc.springbootmybatismutilds.entity.Test">  
+        <result column="id" property="id" />  
+        <result column="name" property="name" />  
+    </resultMap>  
+  
+    <parameterMap id="Test" type="cn.edu.nuc.springbootmybatismutilds.entity.Test"/>  
+  
+    <sql id="Base_Column_List">  
+        id,name  
+    </sql>  
+  
+    <select id="findList" resultMap="BaseResultMap">  
+        select  
+        <include refid="Base_Column_List" />  
+        from test  
+    </select>  
+  
+    <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">  
+        select  
+        <include refid="Base_Column_List" />  
+        from test  
+        where name = #{name}  
+    </select>  
+      
+    <insert id="save" parameterType="Test">  
+        insert into test   
+        (name)   
+        values   
+        (#{name})  
+    </insert>  
+      
+</mapper>  

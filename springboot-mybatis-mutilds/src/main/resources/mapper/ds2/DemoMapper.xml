@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="cn.edu.nuc.springbootmybatismutilds.dao.mysql.ds2.DemoDao">  
+    <resultMap id="BaseResultMap" type="cn.edu.nuc.springbootmybatismutilds.entity.Demo">  
+        <result column="id" property="id" />  
+        <result column="title" property="title" />  
+        <result column="descs" property="descs" />  
+    </resultMap>  
+  
+    <parameterMap id="Demo" type="cn.edu.nuc.springbootmybatismutilds.entity.Demo"/>  
+  
+    <sql id="Base_Column_List">  
+        id,title,descs
+    </sql>  
+  
+    <select id="getDemoList" resultType="Demo">  
+        select  
+        <include refid="Base_Column_List" />  
+        from demo  
+    </select>  
+  
+</mapper>  
